@@ -1,0 +1,269 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Nightbright  | Student Supplies</title>
+        <style>
+          body{
+            background-image: url(images/background.png);
+            height: 165vh;
+            width: 170vh;
+            background-size: cover;
+            background-position: center;
+          }
+          .pictures{
+          max-height: 1200px;
+          margin: 3px;
+          }
+          .gallery{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            width: 390px;
+          }
+          .gallery2{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            width: 390px;
+            height: 390px;
+            position: absolute;
+            right: 620px;
+            top: 350px;
+          }
+          .gallery3{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            width: 390px;
+            height: 390px;
+            position: absolute;
+            right: 80px;
+            top: 350px;
+          }
+          .gallery4{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            position: absolute;
+            top: 1000px;
+            width: 390px;
+          }
+          .gallery5{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            width: 390px;
+            height: 390px;
+            position: absolute;
+            right: 620px;
+            top: 850px;
+          }
+          .gallery6{
+            margin:5px;
+            border:1px solid #ccc;
+            float: left;
+            width: 390px;
+            height: 390px;
+            position: absolute;
+            right: 80px;
+            top: 850px;
+          }
+          .gallery img{
+            width: 100%;
+            height: auto;
+          }
+          .desc{
+            padding: 45px;
+            text-align: center;
+          }
+          header
+          {
+            position: absolute;
+            color: white;
+            right: 80%;
+            top: 87%;
+            text-size-adjust: 350%;
+          }
+          h1
+          {
+            position: absolute;
+            color: white;
+            right: 18%;
+            top: 27%;
+          }
+          h2{
+            position: absolute;
+            color: white;
+            right: 58%;
+            top: 80%;
+          }
+          h3{
+            position: absolute;
+            color: white;
+            right: 83%;
+            top: 87%;
+          }
+          span{
+            position: absolute;
+            color: white;
+            right: 10%;
+            top: 85%;
+          }
+          span2{
+            position: absolute;
+            color: white;
+            right: 70%;
+            top: 85%;
+          }
+        </style>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <meta property="og:title" content="">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+      
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="javascript" href="Special offer.js">
+        <!-- Place favicon.ico in the root directory -->
+      
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+      
+        <script src="https://kit.fontawesome.com/d756f3c4c9.js" crossorigin="anonymous"></script>
+        <script src="Special offer.js" crossorigin="anonymous"></script>
+        <script src="cart.js"></script>
+      
+        <meta name="theme-color" content="#fafafa">
+      </head>
+      <body>
+        <img src = "images/NightbrightLogo.png" height="200" width="700" class="img-fluid" alt="...">
+        <h1>Special Offer</h1>
+        <div class="header">
+            <div class="container">
+              <div class="navbar">
+                <div class="logo">
+                  <nav>
+                    <ul id="MenuItems">
+                      <a href="Home.html">Home</a>
+                      <a href="products.html">Products</a>
+                      <a href="Special offter.html">Special offer</a>
+                      <a href="About us.html">About Us</a>
+                      <a href="contactus.php">Contact Us</a>
+                      <img src="images/basket.webp" alt="Cart" align-right="500" width="70px" height="50px" onclick=cart()>
+                    </ul>
+                  </nav>
+                </div>
+        </div>      
+        <!--shop-->
+        <section class="shop container">
+          <!--Content-->
+          <div class="shop-content"></div>
+                  <!--Cart Icon-->
+        <div class="cart">
+        <div class="pictures">
+          <div class="gallery">
+            <img src="images/pokemon-conquest.jpg"><h3>Pokemon Conquest</h3><span2>£2.50</span2>
+            <button onclick='addtocart'>Add to cart</button>
+            <div class="gallery2">
+            <img src="images/PokemonSage.png"><h2>Pokemon Sage</h2>
+            <span>£2.50</span>
+            <i class='add-cart'></i><button onclick='addtocart'>Add to cart</button>
+            <input type="number" value="1" class="cart-quantity">
+          </div>
+          <div class="gallery3">
+            <input type="number" value="1" class="cart-quantity">
+            <img src="images/Uranium_intro.webp"><h2>Pokemon Urainium</h2>
+            <span>£3.00</span>
+            </i><button onclick='addtocart'>Add to cart</button>
+          </div>
+          <input type="number" value="1" class="cart-quantity">
+          <div class="gallery4">
+            <img src="images/Sonic fan game.jpg"><h3>Sonic RPG</h3><span>£1.00</span><button onclick='addtocart'>Add to cart</button>
+            <input type="number" value="1" class="cart-quantity">
+          </div>
+          <div class="gallery5">
+            <img src="images/SkyArrow.png"><h2>Sky Arrow</h2><span>£1.00</span>><button onclick='addtocart'>Add to cart</button>
+            <input type="number" value="1" class="cart-quantity">
+          </div>
+          <div class="gallery6">
+            <img src="images/Sonic x fan game.jfif"><h2>Sonic X Final Fantasy</h2>
+            <span>£2.00</span><button onclick='addtocart'>Add to cart</button>
+            <input type="number" value="1" class="cart-quantity">
+          </div>
+          </div>
+        </div>
+        <!----- footer ----->
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="footer-col-1">
+              <h3>Download our app</h3>
+              <p>Download App for Android and iOs</p>
+              <div class="app-logo">
+                <img src="images/play-store.png" alt="Get it on Android">
+                <img src="images/app-store.png" alt="Get it on Apple">
+              </div>
+            </div>
+            <div class="footer-col-2">
+              <img src="images/CampusMartLogo.png" alt="Logo">
+              <p>Students Essentials</p>
+            </div>
+            <div class="footer-col-3">
+              <h3>Useful Links</h3>
+              <ul>
+                <li>Return Policy</li>
+                <li>Contact Us</li>
+                <li>Back to top ⤒</li>
+              </ul>
+            </div>
+            <div class="footer-col-4">
+              <h3>Follow Us</h3>
+              <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+          <p class="copyright">©Copyright 2023 - CampusMart</p>
+        </div>
+      </div>
+    </footer>
+      <script>
+        var MenuItems = document.getElementById("MenuItems");
+      
+        MenuItems.style.maxHeight = "0px";
+      
+        function menutoggle(){
+          if(MenuItems.style.maxHeight === "0px"){
+            MenuItems.style.maxHeight = "200px";
+          }
+          else{
+            MenuItems.style.maxHeight = "0px";
+          }
+        }
+      
+        function product_view(id){
+          var product_id = id;
+      
+          window.location.href = "product_view.php?product_id=" + product_id;
+        }
+      
+        function cart(){
+          window.location.href = "addtocart.html";
+        }
+      </script>
+        <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+    </html>

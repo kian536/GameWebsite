@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Nightbright  | Student Supplies</title>
+        <style>
+          body{
+            background-image: url(images/background.png);
+            height: 165vh;
+            width: 170vh;
+            background-size: cover;
+            background-position: center;
+          }
+          h1
+          {
+            position: absolute;
+            color: white;
+            right: 80%;
+            top: 27%;
+          }
+        </style>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <meta property="og:title" content="">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+      
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Place favicon.ico in the root directory -->
+      
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+      
+        <script src="https://kit.fontawesome.com/d756f3c4c9.js" crossorigin="anonymous"></script>
+      
+        <meta name="theme-color" content="#fafafa">
+      </head>
+      <body>
+        <img src = "images/NightbrightLogo.png" height="200" width="700" class="img-fluid" alt="...">
+        <h1>About us</h1>
+        <div class="header">
+          <div class="container">
+            <div class="navbar">
+              <div class="logo">
+              </div>
+              <nav>
+                <ul id="MenuItems">
+                  <a href="Home.html">Home</a>
+                  <a href="products.html">Products</a>
+                  <a href="Special offter.html">Special offer</a>
+                  <a href="About us.html">About Us</a>
+                  <a href="contactus.php">Contact Us</a>
+                  <img src="images/basket.webp" alt="Cart" align-right="500" width="70px" height="50px" onclick=cart()>
+                </ul>
+              </nav>
+                  </div>
+                </div>
+              </div>
+                </head>
+                    <div class="col-2 abt-font">
+                      <p>Nightbright was established as a result of a common vision and individual experience. 
+                      Being a university student myself, I personally have a passion for playing fan games made by others so I believe it's only right to support them financially. <br><br>
+                      I realised that finding some of these fantastic made games are quite difficult and can be frustrating. 
+                      This insight gave rise to the concept of Nightbright, an online storefront created to make it simple for people of all ages but specifically gaming students to 
+                      access a variety of fan made games.
+                    </div>
+                    <div class="col-2 abt-font">
+                      <p>At Nightbright, I believe everyone should contribute to giving little change to those who worked 
+                      on the game projects so it benifits them in the long run and perhaps motivates them to keep going. 
+                      I tried my best to provide fair rates on all of the advertised games.<br><br> Purchasing 
+                      has never been simpler thanks to our streamlined ordering process and user-friendly. 
+                      </p>
+                      <div class="col-2 abt-font">
+                        <p><br><br>We set out on a mission to develop a platform that would revolutionise the way students access their 
+                          important materials out of our enthusiasm for education and our desire to empower other students. </p><br></p>
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                
+              </div>
+            </body>
+        <!----- footer ----->
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="footer-col-1">
+                <h3>Download our app</h3>
+                <p>Download App for Android and iOs</p>
+                <div class="app-logo">
+                  <img src="images/play-store.png" alt="Get it on Android">
+                  <img src="images/app-store.png" alt="Get it on Apple">
+                </div>
+              </div>
+              <div class="footer-col-2">
+                <img src="images/NightbrightLogo.png" alt="Logo">
+                <p>Students Essentials</p>
+              </div>
+              <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                  <li>Return Policy</li>
+                  <li>Contact Us</li>
+                  <li>Back to top ⤒</li>
+                </ul>
+              </div>
+              <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                  <li>Facebook</li>
+                  <li>Twitter</li>
+                  <li>Instagram</li>
+                </ul>
+              </div>
+            </div>
+            <hr>
+            <p class="copyright">©Copyright 2023 - CampusMart</p>
+          </div>
+        </div>
+      </footer>
+        <script>
+          var MenuItems = document.getElementById("MenuItems");
+        
+          MenuItems.style.maxHeight = "0px";
+        
+          function menutoggle(){
+            if(MenuItems.style.maxHeight === "0px"){
+              MenuItems.style.maxHeight = "200px";
+            }
+            else{
+              MenuItems.style.maxHeight = "0px";
+            }
+          }
+        
+          function product_view(id){
+            var product_id = id;
+        
+            window.location.href = "product_view.php?product_id=" + product_id;
+          }
+        
+          function cart(){
+            window.location.href = "addtocart.html";
+          }
+        </script>
+          <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+          <script src="js/plugins.js"></script>
+          <script src="js/main.js"></script>
+      </body>
+      </html>

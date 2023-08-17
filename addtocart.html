@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+        <meta property="og:title" content="">
+        <meta property="og:type" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+      
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Place favicon.ico in the root directory -->
+      
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="addtocart.css">
+        
+        <script src="images/basket.webp" crossorigin="anonymous"></script>
+        <script src="addtocart.js"></script>
+        </head>
+        <body>
+            <div class="header">
+                <p class="LOGO">Nightbright</p>
+                <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+                <script src="addtocart.js"></script>
+                <script src="cart.js"></script>
+            </div>
+            <nav>
+              <ul id="MenuItems">
+                <a href="Home.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="Special offter.html">Special offer</a>
+                <a href="About us.html">About Us</a>
+                <a href="contact us.html">Contact Us</a>
+                <img src="images/basket.webp" alt="Cart" align-right="500" width="70px" height="50px" onclick=cart()>
+              </ul>
+            </nav>
+                        <div class="container">
+                            <div id="root"></div>
+                            <div class="sidebar">
+                                <div class="head"><p>My Cart</p></div>
+                                <div id="cartItem">Your cart is empty</div>
+                                <div class="foot">
+                                    <h3>Total</h3>
+                                    <h2 id="total">£ 0.00</h2>
+                                    <input type="button" value="Continue Checkout" onclick="checkout()" class="btn" style="float: right;"></input>
+                                <!--Remove cart-->
+                                   <i class="cart-remove"></i><input type="button" value="Delete"></input>
+                            </div>
+                        </div>
+        </body>
+</html>
+        <!----- footer ----->
+        <footer>
+            <div class="container">
+              <div class="row">
+                <div class="footer-col-1">
+                  <h3>Download our app</h3>
+                  <p>Download App for Android and iOs</p>
+                  <div class="app-logo">
+                    <img src="images/play-store.png" alt="Get it on Android">
+                    <img src="images/app-store.png" alt="Get it on Apple">
+                  </div>
+                </div>
+                <div class="footer-col-2">
+                  <img src="images/NightbrightLogo.png" alt="Logo">
+                  <p>Students Essentials</p>
+                </div>
+                <div class="footer-col-3">
+                  <h3>Useful Links</h3>
+                  <ul>
+                    <li>Return Policy</li>
+                    <li>Contact Us</li>
+                    <li>Back to top ⤒</li>
+                  </ul>
+                </div>
+                </div>
+                <div class="footer-col-4">
+                  <h3>Follow Us</h3>
+                  <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                  </ul>
+                </div>
+              </div>
+        </footer>
+              <script>
+              
+                function checkout(){
+                  window.location.href = "checkout.html";
+                }
+              </script>

@@ -1,0 +1,222 @@
+require_once "connection.php";
+
+  
+$product_id = strip_tags($_GET["product_id"]) ?? 0;
+
+$sql = "SELECT * FROM product WHERE product_id=$product_id";
+
+$sql2 = "SELECT * FROM product";
+
+$all_products = $conn->query($sql2);
+$product = mysqli_fetch_assoc($conn->query($sql)) or die;
+
+$cat_id = $product["category_id"];
+
+$sql3 = "SELECT * FROM product_category WHERE category_id=$cat_id";
+
+$category = mysqli_fetch_assoc($conn->query($sql3)) or die;
+
+$cookie_name = "basket_id";
+
+if(!isset($_COOKIE[$cookie_name])) { // Checks if theres no cookie
+      $basket_id = rand(); // Get randint for id
+
+      $basket_items = []; // Set basket_items to null
+
+      $sql4 = "INSERT INTO basket (basket_id) VALUES ($basket_id)"; 
+
+      $conn->query($sql4); // Create object in db
+
+      setcookie($cookie_name, $basket_id, time() + (86400 * 30), "/"); // Create cookie
+} else {
+  $basket_id = $_COOKIE[$cookie_name]; // Retreive cookie
+
+  $sql6 = "SELECT * FROM basket_items WHERE basket_id=$basket_id"; 
+
+  $basket_items = $conn->query($sql6); // Get items stored in basket from db
+}
+
+try{
+  if($_SERVER["REQUEST_METHOD"] == "POST") { // Request to add to basket
+    $updated = FALSE;
+    $q = (int) $_REQUEST["quantity"];
+    if ($basket_items) {
+      while ($item = mysqli_fetch_assoc($basket_items)){
+        if ($item["product_id"] == $product_id) { // Check if product already exists in basket
+          $q+= $item["quantity"]; // Increase quantity
+          $sql5 = "UPDATE basket_items SET quantity=$q WHERE basket_id=$basket_id and product_id=$product_id";
+          $conn->query($sql5);
+          $updated = TRUE;
+          echo '<script type="text/javascript">
+           window.onload = function () { alert("Increased quantity of item in cart"); } 
+        </script>'; 
+        }
+      }
+  }
+  if (!$updated){ // Not in basket
+    $sql5 = "INSERT INTO basket_items (basket_id, product_id, quantity)
+    VALUES ($basket_id, $product_id, $q)";
+    $conn->query($sql5); // Add to basket
+    $updated = TRUE;
+    echo '<script type="text/javascript">
+           window.onload = function () { alert("Added item to cart"); } 
+    </script>'; 
+  }
+    
+}}catch(e){
+}
+
+
+?>
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+<meta charset="utf-8">
+<title>Product View - CampusMart</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="">
+<meta property="og:type" content="">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+
+<link rel="manifest" href="site.webmanifest">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="css/style.css">
+<!-- Place favicon.ico in the root directory -->
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/d756f3c4c9.js" crossorigin="anonymous"></script>
+
+<meta name="theme-color" content="#fafafa">
+</head>
+<body>
+<?php include_once "header.php";?>
+
+<!------- Display main item -------->
+<div class="small-container main-product">
+  <div class="row">
+      <div class="col-2">
+          <img src="img/<?php echo $product["product_image"]?>" width=100% alt="<?php echo $product["product_name"]?>">
+      </div>
+      <div class="col-2">
+          <p>All Products / <?php echo $category["category_name"]?></p>
+          <h1><?php echo $product["product_name"]?></h1>
+          <h4>£<?php echo $product["price"]?></h4>
+          <form action="<?php $_PHP_SELF ?>" method= "POST">
+          <input class="quantity" type="number" value="1" name="quantity">
+          <input class="btn" type="submit" name="Add To Cart" value="Add To Cart"></a>
+          </form>
+          <h3>Product Details <i class="fa-solid fa-indent"></i></h3>
+          <br>
+          <p><?php echo $product["product_desc"]?></p>
+      </div>
+  </div>
+</div>
+<div class="small-container">
+<div class="row row-2">
+  <h2>Related Products</h2>
+  <p id="more" onClick=back_to_products()>View More</p>
+</div>
+</div>
+<!------- Display other items -------->
+<div class="small-container">
+<div class="row">
+<?php
+  $x = 1;
+  while(($row = mysqli_fetch_assoc($all_products)) && ($x <= 4)){
+      if($row['product_id'] == $product_id){continue;}
+      $x++;
+  ?>
+  <div class="col-4" onclick="product_view(['product_id']);">
+    <img src="product_image"
+    <h4>["product_name"]</h4>
+    <div class="rating">
+</div>
+</div>
+<!----- footer ----->
+<div class="footer">
+<div class="container">
+  <div class="row">
+    <div class="footer-col-1">
+      <h3>Download our app</h3>
+      <p>Download App for Android and iOs</p>
+      <div class="app-logo">
+        <img src="img/play-store.png" alt="Get it on Android">
+        <img src="img/app-store.png" alt="Get it on Apple">
+      </div>
+    </div>
+    <div class="footer-col-2">
+      <img src="img/CampusMartLogo_white.png" alt="Logo">
+      <p>Students Essentials</p>
+    </div>
+    <div class="footer-col-3">
+      <h3>Useful Links</h3>
+      <ul>
+        <li>Return Policy</li>
+        <li>Contact Us</li>
+        <li>Back to top ⤒</li>
+      </ul>
+    </div>
+    <div class="footer-col-4">
+      <h3>Follow Us</h3>
+      <ul>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <p class="copyright">©Copyright 2023 - CampusMart</p>
+</div>
+</div>
+<script>
+var MenuItems = document.getElementById("MenuItems");
+var More = document.getElementById("more");
+
+MenuItems.style.maxHeight = "0px";
+
+function menutoggle(){
+  if(MenuItems.style.maxHeight === "0px"){
+    MenuItems.style.maxHeight = "200px";
+  }
+  else{
+    MenuItems.style.maxHeight = "0px";
+  }
+}
+
+
+function product_view(id){
+    var product_id = id;
+
+    window.location.href = "?product_id=" + product_id;
+}
+
+function back_to_products(){
+  window.location.href = "products.php";
+}
+
+More.onlick = function(){back_to_products();};
+</script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
